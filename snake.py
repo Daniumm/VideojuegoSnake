@@ -53,14 +53,14 @@ def move():
 
     if counter.x % 5 == 0:
         if -200 < food.x < 190:
-            food.x += randrange(-1, 1) * 10
+            food.x += randrange(-1, 2) * 10
         elif food.x == -200:
             food.x += 50
         elif food.x == 190:
             food.x -= 50
 
         if -200 < food.y < 190:
-            food.y += randrange(-1, 1) * 10
+            food.y += randrange(-1, 2) * 10
         elif food.y == -200:
             food.y += 50
         elif food.y == 190:
