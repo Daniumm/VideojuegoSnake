@@ -1,11 +1,11 @@
-"""Snake, classic arcade game.
+"""
+Juego: Paint
 
-Exercises
+Programador 1: Daniel Alejandro Martinez Rosete
+Programador 2: Andrés
 
-1. How do you make the snake faster or slower?
-2. How can you make the snake go around the edges?
-3. How would you move the food?
-4. Change the snake to respond to mouse clicks.
+Fecha:10/05/22
+
 """
 
 from random import randrange
@@ -15,7 +15,8 @@ from freegames import square, vector
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
-aim = vector(0, -10)
+aim = vector(0, 10)
+counter = vector(0, 0)
 
 
 def change(x, y):
@@ -33,6 +34,7 @@ def move():
     """Move snake forward one segment."""
     head = snake[-1].copy()
     head.move(aim)
+    counter.x += 1
 
     if not inside(head) or head in snake:
         square(head.x, head.y, 9, 'red')
@@ -47,8 +49,23 @@ def move():
         food.y = randrange(-15, 15) * 10
     else:
         snake.pop(0)
-
     clear()
+
+    if counter.x % 5 == 0:
+        if -200 < food.x < 190:
+            food.x += randrange(-1, 1) * 10
+        elif food.x == -200:
+            food.x += 50
+        elif food.x == 190:
+            food.x -= 50
+
+        if -200 < food.y < 190:
+            food.y += randrange(-1, 1) * 10
+        elif food.y == -200:
+            food.y += 50
+        elif food.y == 190:
+            food.y -= 50
+
 
     for body in snake:
         square(body.x, body.y, 9, 'black')
