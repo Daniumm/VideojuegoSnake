@@ -9,6 +9,7 @@ Fecha:10/05/22
 """
 
 from random import randrange
+import random
 from turtle import *
 
 from freegames import square, vector
@@ -17,7 +18,16 @@ food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, 10)
 counter = vector(0, 0)
+colores = ['blue', 'green', 'brown', 'aqua', 'black']
 
+#Colores Random
+def selectRandom(colores):
+  return random.choice(colores)
+#Color serpiente
+colorSnake = selectRandom(colores)
+#Color Food
+colores.remove(colorSnake)
+colorFood = selectRandom(colores)
 
 def change(x, y):
     """Change snake direction. jjjj"""
@@ -68,9 +78,9 @@ def move():
 
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, colorSnake)
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorFood)
     update()
     ontimer(move, 100)
 
