@@ -1,5 +1,5 @@
 """
-Juego: Paint
+Juego: Snake
 
 Programador 1: Daniel Alejandro Martinez Rosete
 Programador 2: Andrés
