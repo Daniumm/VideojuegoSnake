@@ -20,7 +20,7 @@ counter = vector(0, 0)
 
 
 def change(x, y):
-    """Change snake direction."""
+    """Change snake direction. jjjj"""
     aim.x = x
     aim.y = y
 
