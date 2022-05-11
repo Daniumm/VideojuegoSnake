@@ -61,20 +61,25 @@ def move():
         snake.pop(0)
     clear()
 
-    if counter.x % 5 == 0:
+    #Aqui se usa un counter para que la comida se mueva cada 15 ticks por así decirlo
+    if counter.x % 15 == 0:
+        #Se checa si la comida esta dentro de la ventana y si lo esta, se mueve en x
+        # un cuadrado alrededor random y si esta por salirse se mueve 10 cuadros para dentro
         if -200 < food.x < 190:
             food.x += randrange(-1, 2) * 10
         elif food.x == -200:
-            food.x += 50
+            food.x += 10
         elif food.x == 190:
-            food.x -= 50
+            food.x -= 10
 
+        #Se checa si la comida esta dentro de la ventana y si lo esta, se mueve en y
+        # un cuadrado alrededor random y si esta por salirse se mueve 10 cuadros para dentro
         if -200 < food.y < 190:
             food.y += randrange(-1, 2) * 10
         elif food.y == -200:
-            food.y += 50
+            food.y += 10
         elif food.y == 190:
-            food.y -= 50
+            food.y -= 10
 
 
     for body in snake:
